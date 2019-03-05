@@ -3,12 +3,12 @@
 
 void tempConvertMenu();
 
-float num1;
+
 int selection;
 
 
-float convertKtoC(float,float);
-float convertCtoK(float, float);
+float convertKtoC (float);
+float convertCtoK (float);
 
 
 #endif // TEMPERATURE_H_INCLUDED

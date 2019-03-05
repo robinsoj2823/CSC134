@@ -2,17 +2,19 @@
 
 
 //contains various temp conversions functions, including the menus
+//can't figure out why keeps saying will always evaluate as 'true'
+// answer always comes out to 1
 
 
-float convertKtoC(float num1, float tempk)
+float convertKtoC (float tempK)
 {
 
-    float tempC = num1 - 273.15;
+    float tempC = tempK - 273.15;
     return tempC;
 }
 
-float convertCtoK(float num1, float tempC)
+float convertCtoK (float tempC)
 {
-    float tempK = num1 + 273.15;
+    float tempK = tempC + 273.15;
     return tempK;
 }

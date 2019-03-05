@@ -24,43 +24,6 @@ int main()
     return 0;
 }
 
-int mainArithmetic()
-{
-
-
-    // main calculator loop
-    int first;
-    int second;
-    char opcode;
-
-    cout << "Enter an expression to be calculated." << endl;
-    cout << "Example: 4 + 5, 10 - 2, 9 / 3, 7 * 7" << endl;
-    cin >> first >> opcode >> second;
-
-    if (opcode == '+')
-    {
-        cout << add(first, second) << endl;
-    }
-    else if (opcode == '-')
-    {
-        cout << subtract(first, second) << endl;
-    }
-    else if (opcode == '/')
-    {
-        cout << divide(first, second) << endl;
-    }
-    else if (opcode == '*')
-    {
-        cout << multiply(first, second) << endl;
-    }
-    else
-    {
-        cout << "Operation invalid" << endl;
-
-    }
-    //only one return
-}
-
 
 
 void printMainMenu()
@@ -68,6 +31,7 @@ void printMainMenu()
     cout << " -- Main Menu --" << endl;
     cout << "Option 1. Temp Converter" << endl;
     cout << "Option 2. Arithmetic" << endl;
+    cout << "Option 0. Exit Program" << endl;
 }
 
 
@@ -103,33 +67,71 @@ void mainMenu()
 
 void tempConvertMenu()
 {
-    float num1;
-    int selection;
-    float tempC;
     float tempK;
-
+    float tempC;
+    int selection;
 
     do
     {
-    cout << "1. K to C" << endl;
-    cout << "2. C to K" << endl;
-    cout << "3. Back" << endl;
+    cout << "3. K to C" << endl;
+    cout << "4. C to K" << endl;
+    cout << "5. Exit Program" << endl;
     cin >> selection;
         switch (selection)
         {
-        case 1: cout << "Numerical value: ";
-            cin >> num1;
+        case 3: cout << "Value of Kelvin converted to Celsius: ";
+            cin >> tempK;
+            tempC = convertKtoC(tempK);
             cout << tempC << endl;
         break;
-        case 2: cout << "Numerical value: ";
-            cin >> num1;
+        case 4: cout << "Value of Celsius converted to Kelvin: ";
+            cin >> tempC;
+            tempK = convertCtoK(tempC);
             cout << tempK << endl;
         break;
-        case 3: printMainMenu();
+        case 5: cout << "Exiting" << endl;
+        break;
         default:
-            cout << "Invalid opotion" << endl;
+            cout << "Invalid option" << endl;
 
         }
-    } while (selection != 3);
+    } while (selection != 5);
 }
+
+
+
+
+
+
+    int mainArithmetic()
+    {
+        int first;
+        int second;
+        char opcode;
+
+        do
+        {
+            cout << "Enter an expression to be calculated." << endl;
+            cout << "Example: 4 + 5, 10 - 6, 2 * 2, 16 / 4" << endl;
+            cout << " 0!0 to exit program" << endl;
+            cin >> first >> opcode >> second;
+
+            switch (opcode)
+            {
+                case '+': cout << add (first, second) << endl;
+                break;
+                case '-': cout << subtract (first, second) << endl;
+                break;
+                case '/': cout << divide (first, second) << endl;
+                break;
+                case '*': cout << multiply (first, second) << endl;
+                break;
+                case '!': cout << "Exiting" << endl;
+                break;
+                default: cout << "Invalid Option" << endl;
+            }
+        }while (opcode != '!');
+    }
+    //only one return
+
 
